@@ -22,20 +22,18 @@ public class ServicePizzaProd implements PizzaService {
   }
 
   @Override
-  public Pizza getPizzaById(int id) {
-    return this.pizzaRepository.findById(id);
+  public Pizza getPizzaById(long id) {
+    return this.pizzaRepository.getById(id);
   }
 
   @Override
   public void addPizza(Pizza pizza) {
-    // TODO Auto-generated method stub
-
+    this.pizzaRepository.save(pizza);
   }
 
   @Override
   public void modifiedPizza(Pizza pizza) {
-    // TODO Auto-generated method stub
-
+    this.pizzaRepository.save(pizza);
   }
 
   @Override

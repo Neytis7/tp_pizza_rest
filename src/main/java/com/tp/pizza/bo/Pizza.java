@@ -23,7 +23,7 @@ public class Pizza {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private int id;
+  private long id;
 
   @NotBlank
   @Column(nullable = false, length = 55)

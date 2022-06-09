@@ -26,7 +26,7 @@ public class PizzaServiceImpl implements PizzaService {
   }
 
   @Override
-  public Pizza getPizzaById(int id) {
+  public Pizza getPizzaById(long id) {
     Pizza pizzaARetourner = null;
     for (Pizza pizza : this.listPizza) {
       if (pizza.getId() == id) {

@@ -7,7 +7,7 @@ public interface PizzaService {
 
   List<Pizza> getPizzas();
 
-  Pizza getPizzaById(int id);
+  Pizza getPizzaById(long id);
 
   void addPizza(Pizza pizza);
 
