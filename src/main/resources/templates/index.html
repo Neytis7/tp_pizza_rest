@@ -10,13 +10,42 @@
 <body>
 	
 	<div class="container">
-	
+		
 		<div class="" id="affichagePizza">
 		
 			<h1 class="text-center display-1">Mon catalogue de pizza</h1>
 			
-			<div id="listPizza">
+			<input type="submit" id="btnAjoutPizza" value="Ajouter une pizza" class="btn btn-outline-primary"/><br><br>
 			
+			<div id="listPizza" style="display:flex;flex-direction:column;justify-content:space-between;">
+			
+			</div>
+			
+			<div id="pizzaForm" style="display:none;" >
+				<form>
+				  <fieldset>
+				    <legend>Ajouter une pizza</legend>
+				    <div class="form-group">
+				      <label for="pizzaNom" class="form-label mt-4">Nom</label>
+				      <input type="text" class="form-control" id="pizzaNom">
+		 			</div>
+				    <div class="form-group">
+				      <label for="pizzaPrix" class="form-label mt-4">Prix</label>
+				      <input type="number" class="form-control" id="pizzaPrix" >
+				   
+				    </div>
+				    <div class="form-group">
+				      <label for="pizzaDescription" class="form-label mt-4">Description </label>
+				      <textarea class="form-control" id="pizzaDescription" rows="3"></textarea>
+				    </div>
+				    <div class="form-group">
+				      <label for="formFile" class="form-label mt-4">Choisir une photo</label>
+				      <input class="form-control" type="file" id="formFile" >
+				    </div>
+				    
+				    <button type="submit" class="btn btn-outline-success" data-form-type="action">Submit</button>
+				    </fieldset>
+				</form>
 			</div>
 		</div>
 		
