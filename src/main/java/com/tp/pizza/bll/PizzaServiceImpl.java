@@ -3,10 +3,12 @@ package com.tp.pizza.bll;
 import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.BeanUtils;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 import com.tp.pizza.bo.Pizza;
 
 @Service
+@Profile("test")
 public class PizzaServiceImpl implements PizzaService {
 
   List<Pizza> listPizza;
