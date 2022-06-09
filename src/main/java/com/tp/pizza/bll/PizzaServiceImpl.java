@@ -51,14 +51,12 @@ public class PizzaServiceImpl implements PizzaService {
   }
 
   @Override
-  public void deletePizza(int id) {
+  public void deletePizza(Pizza pizza) {
     for (Pizza p : this.listPizza) {
-      if (p.getId() == id) {
+      if (p.getId() == pizza.getId()) {
         this.listPizza.remove(p);
         break;
       }
     }
   }
-
-
 }

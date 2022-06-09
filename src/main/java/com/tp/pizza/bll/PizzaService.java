@@ -13,6 +13,6 @@ public interface PizzaService {
 
   void modifiedPizza(Pizza pizza);
 
-  void deletePizza(int id);
+  void deletePizza(Pizza pizza);
 
 }

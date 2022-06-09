@@ -55,6 +55,7 @@ public class PizzaRestController {
 
   @DeleteMapping("/pizzas/{id}")
   public void deletePizza(@PathVariable("id") int id) {
-    pizzaService.deletePizza(id);
+	  Pizza	pizza = this.pizzaService.getPizzaById(id);
+	  pizzaService.deletePizza(pizza);
   }
 }

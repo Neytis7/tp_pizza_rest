@@ -2,13 +2,15 @@ package com.tp.pizza.bll;
 
 import java.util.List;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.tp.pizza.bo.Pizza;
 import com.tp.pizza.dal.PizzaRepository;
 
 @Service
-public class ServicePizzaProd {
+@Profile("Default")
+public class ServicePizzaProd implements PizzaService {
 
 	private PizzaRepository pizzaRepository;
 	
@@ -17,13 +19,30 @@ public class ServicePizzaProd {
 		this.pizzaRepository = pizzaRepository;
 	}
 	
-	public List<Pizza> getAllPizza()
-	{
+	@Override
+	public List<Pizza> getPizzas() {
 		return this.pizzaRepository.findAll();
 	}
-	
-	public Pizza getPizzaByFind(int id)
-	{
+
+	@Override
+	public Pizza getPizzaById(int id) {
 		return this.pizzaRepository.findById(id);
+	}
+
+	@Override
+	public void addPizza(Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void modifiedPizza(Pizza pizza) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deletePizza(Pizza pizza) {
+		this.pizzaRepository.delete(pizza);
 	}
 }
