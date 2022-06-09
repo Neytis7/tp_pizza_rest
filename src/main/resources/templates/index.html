@@ -1,0 +1,34 @@
+<!doctype html>
+<html xmlns:th="https://www.thymeleaf.org" lang="fr">
+<head>
+	<meta charset="UTF-8" />
+	<title>Accueil | Pizza</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/sketchy/bootstrap.min.css" 
+	integrity="sha384-RxqHG2ilm4r6aFRpGmBbGTjsqwfqHOKy1ArsMhHusnRO47jcGqpIQqlQK/kmGy9R" crossorigin="anonymous">
+</head>
+<body>
+	
+	<div class="container">
+	
+		<div class="" id="affichagePizza">
+		
+			<h1 class="text-center display-1">Mon catalogue de pizza</h1>
+			
+			<div data-th-each="pizza :${pizzas}">
+				<div class="card mb-1" id="'pizza-'+${pizza.id}">
+			  		<h3 class="card-header" th:text="${pizza.nom}"></h3>
+			  		
+					<img width="400" th:src="@{'img/' + ${pizza.image}}"/>
+					
+					<div class="card-footer text-muted" th:text="${pizza.prix}"></div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="" id="ajoutPizza"></div>
+		
+	</div>
+	
+	<script type="text/javascript" th:src="@{/static/js/index.js}"></script>
+</body>
+</html>
