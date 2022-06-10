@@ -44,6 +44,7 @@ btnToggle.addEventListener('click', event => {
 	    btnSupprimerForm.style.display = "none";
 	    formDiv.style.display = "contents";
 	    form.reset();
+	    document.getElementById('id').value = "";
 	    btnToggle.value = "Lister les pizzas";
 	  }
 });
@@ -53,6 +54,7 @@ btnRetourForm.addEventListener('click', event => {
 	    listePizza.style.display = "contents";
 	    formDiv.style.display = "none";
 	    btnToggle.style.display = "block";
+	    btnToggle.value = "Ajouter une pizza"
 	    legendForm.innerText = "Ajouter une pizza";
 });
 
@@ -76,10 +78,12 @@ form.addEventListener('submit', function (event) {
 		}
 	}).then(function (response) {
 		if (response.ok) {
+			btnToggle.value = "Ajouter une pizza"
 			return response.json();
 		}
 		return Promise.reject(response);
 	}).then(function (data) {
+		btnToggle.click();
 		btnRetourForm.click();
 	}).catch(function (error) {
 		console.warn(error);
