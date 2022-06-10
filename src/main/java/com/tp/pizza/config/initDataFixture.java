@@ -40,7 +40,7 @@ public class initDataFixture {
       pizzaRepository.save(margharita);
       pizzaRepository.save(paysanne);
 
-      // COMMANDES
+      // // COMMANDES
       Commande commande1 = new Commande();
       commande1.setNameCommande("Creed");
       List<Pizza> listPizza = new ArrayList<>();

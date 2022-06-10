@@ -5,6 +5,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
@@ -29,6 +31,8 @@ public class Commande {
   private String nameCommande;
 
   @ManyToMany
+  @JoinTable(name = "CommandePizzas", joinColumns = {@JoinColumn(name = "commande_id")},
+      inverseJoinColumns = {@JoinColumn(name = "pizza_id")})
   private List<Pizza> listPizza;
 
   private float totalPrice;
