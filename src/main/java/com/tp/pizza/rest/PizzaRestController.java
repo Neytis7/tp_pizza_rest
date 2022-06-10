@@ -1,6 +1,7 @@
 package com.tp.pizza.rest;
 
 import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -38,24 +39,47 @@ public class PizzaRestController {
 
   @PostMapping("/pizzas")
   public ResponseEntity<Pizza> addPizza(@RequestBody Pizza pizza) {
-
-    if (pizza.getId() <= 0 || pizza.getPrix() < 0 || pizza.getNom().isBlank()
-        || pizza.getDescription().isBlank()) {
+    if (
+    	pizza.getPrix() <= 0 || 
+		pizza.getNom().trim().isBlank() || 
+		pizza.getDescription().trim().isBlank()
+		
+   ) {
       return new ResponseEntity<Pizza>(HttpStatus.BAD_REQUEST);
     }
+    
     pizzaService.addPizza(pizza);
+    
     return new ResponseEntity<Pizza>(pizza, HttpStatus.CREATED);
   }
 
   @PutMapping("/pizzas")
-  public Pizza modifiedPizza(@RequestBody Pizza pizza) {
+  public ResponseEntity<Pizza> modifiedPizza(@RequestBody Pizza pizza) {
+	  if (
+	    	pizza.getPrix() <= 0 || 
+			pizza.getNom().trim().isBlank() || 
+			pizza.getDescription().trim().isBlank()
+				
+	   ) {
+		  
+	      return new ResponseEntity<Pizza>(HttpStatus.BAD_REQUEST);
+	    }
+
     pizzaService.modifiedPizza(pizza);
-    return pizza;
+
+    return new ResponseEntity<Pizza>(pizza, HttpStatus.OK);
   }
 
   @DeleteMapping("/pizzas/{id}")
-  public void deletePizza(@PathVariable("id") int id) {
-    Pizza pizza = this.pizzaService.getPizzaById(id);
-    pizzaService.deletePizza(pizza);
+  public ResponseEntity<?> deletePizza(@PathVariable("id") int id) {
+	  Pizza pizza = this.pizzaService.getPizzaById(id);
+	  
+	  if (pizza == null) {
+		  return new ResponseEntity<Pizza>(HttpStatus.BAD_REQUEST);
+	  }
+	  
+	  pizzaService.deletePizza(pizza);
+	  
+	  return new ResponseEntity<String>(HttpStatus.NO_CONTENT);
   }
 }

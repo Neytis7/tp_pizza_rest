@@ -39,8 +39,8 @@ public class Pizza {
   @Column(columnDefinition = "TINYINT")
   private float prix;
 
-  @NotBlank
-  private String image;
+  @Column(nullable = false)
+  private String image = null;
 
   public Pizza(String nom, String description, float prix, String image) {
     super();

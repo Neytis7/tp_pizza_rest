@@ -11,46 +11,51 @@
 	
 	<div class="container">
 		
-		<div class="" id="affichagePizza">
+		<div id="affichagePizza">
 		
 			<h1 class="text-center display-1">Mon catalogue de pizza</h1>
 			
-			<input type="submit" id="btnAjoutPizza" value="Ajouter une pizza" class="btn btn-outline-primary"/><br><br>
+			<input type="submit" id="btnToggle" value="Ajouter une pizza" class="btn btn-outline-primary"/><br><br>
 			
 			<div id="listPizza" style="display:flex;flex-direction:column;justify-content:space-between;">
 			
 			</div>
 			
 			<div id="pizzaForm" style="display:none;" >
-				<form>
+				<form id="formAjoutPizza">
 				  <fieldset>
-				    <legend>Ajouter une pizza</legend>
+				    <legend id="legendForm">Ajouter une pizza</legend>
 				    <div class="form-group">
-				      <label for="pizzaNom" class="form-label mt-4">Nom</label>
-				      <input type="text" class="form-control" id="pizzaNom">
+				      <input type="hidden" class="form-control" id="id" name="id" value="">
+				      
+				      <label for="nom" class="form-label mt-4">Nom :</label>
+				      <input type="text" class="form-control" id="nom" name="nom">
 		 			</div>
 				    <div class="form-group">
-				      <label for="pizzaPrix" class="form-label mt-4">Prix</label>
-				      <input type="number" class="form-control" id="pizzaPrix" >
+				      <label for="prix" class="form-label mt-4">Prix :</label>
+				      <input type="number" class="form-control" id="prix" name="prix">
 				   
 				    </div>
 				    <div class="form-group">
-				      <label for="pizzaDescription" class="form-label mt-4">Description </label>
-				      <textarea class="form-control" id="pizzaDescription" rows="3"></textarea>
+				      <label for="description" class="form-label mt-4">Description :</label>
+				      <textarea class="form-control" id="description" name="description" rows="3"></textarea>
 				    </div>
 				    <div class="form-group">
-				      <label for="formFile" class="form-label mt-4">Choisir une photo</label>
-				      <input class="form-control" type="file" id="formFile" >
-				    </div>
+				      <label for="image" class="form-label mt-4">image :</label>
+				      <input type="text" class="form-control" id="image" name="image">
+		 			</div>
+<!-- 				    <div class="form-group"> -->
+<!-- 				      <label for="image" class="form-label mt-4">Choisir une photo</label> -->
+<!-- 				      <input class="form-control" type="file" id="image" name="image" > -->
+<!-- 				    </div> -->
 				    
-				    <button type="submit" class="btn btn-outline-success" data-form-type="action">Submit</button>
+				    <button type="submit" id="btnFormAjoutPizza" class="btn btn-outline-success" data-form-type="action">Valider</button>
+				    <button type="button" id="btnRetourForm" class="btn btn-outline-primary" data-form-type="action">Retour</button><br><br>
+				    <input id="btnSupprimerForm" class="btn btn-outline-danger" data-form-type="action" value="Supprimer" style="display:none;"></input>
 				    </fieldset>
 				</form>
 			</div>
 		</div>
-		
-		<div class="" id="ajoutPizza"></div>
-		
 	</div>
 	
 </body>
