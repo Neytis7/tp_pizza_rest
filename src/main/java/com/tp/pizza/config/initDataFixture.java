@@ -3,16 +3,22 @@ package com.tp.pizza.config;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
+import com.tp.pizza.bo.Membre;
 import com.tp.pizza.bo.Pizza;
+import com.tp.pizza.dal.MembreRepository;
 import com.tp.pizza.dal.PizzaRepository;
 
 @Configuration
 public class initDataFixture {
 
 	@Bean
-	 public CommandLineRunner initData(PizzaRepository pizzaRepository) 
-	{
+	 public CommandLineRunner initData(
+			 PizzaRepository pizzaRepository,
+			 MembreRepository membreRepository,
+			 PasswordEncoder passwordEncoder
+	 ) {
 		 return (args) -> {
 			 //PIZZAS
 			 Pizza regina = new Pizza();
@@ -36,6 +42,14 @@ public class initDataFixture {
 			 pizzaRepository.save(regina);
 			 pizzaRepository.save(margharita);
 			 pizzaRepository.save(paysanne);
+			 
+			 
+			 //MEMBRES
+			 Membre faf = new Membre (1l, "FAFET", "Théophane", "faf", passwordEncoder.encode("azerty"));
+			 Membre neytis = new Membre (2l, "MEDA", "Curtis", "neytis", passwordEncoder.encode("azerty"));
+			 
+			 membreRepository.save(faf);
+			 membreRepository.save(neytis);
 		 };
 	 }
 }
